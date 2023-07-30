@@ -4,6 +4,8 @@
 
 Avatar Emoji Bot uses the new [custom emoji feature.](https://t.me/CustomEmojiPacks) It generates an emoji pack of group members’ rounded avatars.
 
+https://t.me/AvatarEmojiBot
+
 ![-2147483648_-212950](https://github.com/tm-a-t/AvatarEmojiBot/assets/38432588/eea27db8-b526-4cbe-8d64-7e1aad6c1c5e)
 
 ![-2147483648_-212956](https://github.com/tm-a-t/AvatarEmojiBot/assets/38432588/6aae2107-8f45-4d58-b8ae-1bd32a2e1d44)
