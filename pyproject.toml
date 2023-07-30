@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "avatarbot"
+version = "0.1.0"
+description = ""
+authors = ["tm-a-t <tmat.ivanov@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Telethon = "^1.29.0"
+Pillow = "^10.0.0"
+python-dotenv = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
