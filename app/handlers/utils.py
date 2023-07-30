@@ -57,7 +57,7 @@ def added_to_group(event: events.ChatAction.Event):
     )
 
 
-def get_chat_set_button(event: events.ChatAction.Event | Message) -> tl_types.KeyboardButtonCallback:
+def get_chat_set_link(event: events.ChatAction.Event | Message) -> str:
     link = get_full_set_link(event.chat.id, event.client.me.username)
     title = get_set_title(event.chat.title)
-    return Button.url(title, link)
+    return f'<a href="{link}">{title}</a>'

@@ -25,4 +25,4 @@ def get_set_link(chat_id: int, username: str):
 
 
 def get_full_set_link(chat_id: int, username: str):
-    return 't.me/addemoji/' + get_set_link(chat_id, username)
+    return 'https://t.me/addemoji/' + get_set_link(chat_id, username)
