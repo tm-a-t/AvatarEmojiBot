@@ -1,0 +1,34 @@
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  Build-image:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push image
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: ghcr.io/tm-a-t/avataremojibot:latest
+
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: Build-image
+    steps:
+      - env:
+          UPDATE_POST_KEY: ${{ secrets.UPDATE_POST_KEY }}
+        run: |
+          curl --request POST \
+               --url https://vhap-update.vanutp.dev/update \
+               --header "Content-Type: application/json" \
+               --data '{"key":"'$UPDATE_POST_KEY'"}' \
+               --fail
+

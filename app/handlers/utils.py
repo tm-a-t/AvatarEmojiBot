@@ -1,4 +1,4 @@
-from telethon import events, Button
+from telethon import events
 from telethon.events.common import EventBuilder
 from telethon.tl import types as tl_types
 from telethon.tl.custom import Message
@@ -11,10 +11,12 @@ class HandlerGroup(list):
     def __init__(self):
         super().__init__()
         self.group_commands = HandlerGenerator(
-            lambda command: self.on(events.NewMessage(func=lambda message: is_group_command(message, command)))
+            lambda command: self.on(
+                events.NewMessage(func=lambda message: is_group_command(message, command), incoming=True)
+            )
         )
         self.added_to_group = self.on(events.ChatAction(func=added_to_group))
-        self.private_messages = self.on(events.NewMessage(func=lambda event: event.is_private))
+        self.private_messages = self.on(events.NewMessage(func=lambda event: event.is_private, incoming=True))
 
     def on(self, event: EventBuilder):
         def decorator(func):

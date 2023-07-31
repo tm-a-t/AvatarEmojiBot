@@ -11,8 +11,10 @@ logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s [in %(pathnam
 load_dotenv()
 api_id, api_hash = int(os.environ['API_ID']), os.environ['API_HASH']
 token = os.environ['BOT_TOKEN']
+data_dir = os.getenv('DATA_DIR', 'data')
+os.makedirs(data_dir, exist_ok=True)
 
-bot = Bot('bot', api_id, api_hash)
+bot = Bot(os.path.join(data_dir, 'bot'), api_id, api_hash)
 handlers.apply(bot)
 
 
