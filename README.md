@@ -1,5 +1,9 @@
 # Avatar Emoji Bot
 
+I rewrote the bot in Folds. The source code is now [in the Folds repo.](https://github.com/tm-a-t/folds/tree/main/examples/avatar_emoji_bot)
+
+---
+
 ## About
 
 Avatar Emoji Bot uses the new [custom emoji feature.](https://t.me/CustomEmojiPacks) It generates an emoji pack of group members’ rounded avatars.
